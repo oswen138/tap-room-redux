@@ -29,7 +29,7 @@ class KegControl extends React.Component {
         formVisibleOnPage: !prevState.formVisibleOnPage,
       }));
     }
-  }
+  }ghjyjf
 
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
