@@ -4,6 +4,7 @@ import KegList from './KegList';
 import KegDetail from './KegDetail';
 import EditKegForm from './EditKegForm';
 import { v4 } from 'uuid'; 
+import { connect } from 'react-redux';
 
 class KegControl extends React.Component {
 
@@ -112,5 +113,7 @@ class KegControl extends React.Component {
     );
   }
 }
+
+KegControl = connect()(KegControl);
 
 export default KegControl;
