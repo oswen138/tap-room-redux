@@ -1,10 +1,10 @@
-# KARI Kombucha Taproom
+# KARI Kombucha Taproom with Redux
 
 
 By Ophelia Swen 11/20/2020
 
 ## Description
-This web application is designed to enable user to track their kegs and show a list of available kegs for sale. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
+Part two of Epicodus react/redux exercise. This web application is designed to enable user to track their kegs and show a list of available kegs for sale. This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). 
 
 ## Setup/Installation Requirements
 
