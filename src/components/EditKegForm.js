@@ -17,8 +17,6 @@ function EditKegForm (props) {
     </React.Fragment>
   );
 }
-eafaegraergrgargasrgasrg
-armgargskfglskfl;gkl;sdfg
 
 EditKegForm.propTypes = {
   keg: PropTypes.object,

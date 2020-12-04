@@ -9,6 +9,7 @@ function KegDetail(props){
     brand: keg.brand,
     price: keg.price,
     alcoholContent: keg.alcoholContent,
+    flavor: keg.flavor,
     kegs: kegsLeft,
     id: keg.id
   })}>Sold!</button>
