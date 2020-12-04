@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import reportWebVitals from './reportWebVitals';
+import { createStore } from 'redux';
+import reducer from './reducers/ticket-list-reducer';
 
 ReactDOM.render(
   <React.StrictMode>
