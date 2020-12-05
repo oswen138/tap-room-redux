@@ -1,68 +1,45 @@
-import * as a from '../../actions/index';
-import * as c from '../../actions/ActionTypes';
+import * as actions from './../../actions';
+import * as g from '../../actions/ActionTypes';
 
-describe('product actions', () =>{
-  test('addProduct should create add product action', () => {
-    expect(a.addProduct({
-      name: "Gratuitous Grape", 
-      brand: "The Kombucha Bar", 
-      price: 3.00, 
-      flavor: "Grape", 
-      quantity: 50, 
-      id: 1
-    })).toEqual({
-      type: c.ADD_PRODUCT,
-      name: "Gratuitous Grape", 
-      brand: "The Kombucha Bar", 
-      price: 3.00, 
-      flavor: "Grape", 
-      quantity: 50, 
-      id: 1
-    });
-  });
 
-  test('deleteProduct should create delete product action', () => {
-    expect(a.deleteProduct(1)).toEqual({
-      type: c.DELETE_PRODUCT,
+describe('keg actions', () => {
+  test('deleteKeg should create DELETE_KEG action', () => {
+    expect(actions.deleteKeg(1)).toEqual({
+      type: g.DELETE_KEG,
       id: 1
     });
   });
 
   test('toggleForm should create toggle form action', () => {
-    expect(a.toggleForm()).toEqual({
-      type: c.TOGGLE_FORM
-    });
-  });
-
-  test('selectProduct should create select product action', () => {
-    expect(a.selectProduct({
-      name: "Gratuitous Grape", 
-      brand: "The Kombucha Bar", 
-      price: 3.00, 
-      flavor: "Grape", 
-      quantity: 50, 
-      id: 1
-    })).toEqual({
-      type: c.SELECT_PRODUCT,
-      name: "Gratuitous Grape", 
-      brand: "The Kombucha Bar", 
-      price: 3.00, 
-      flavor: "Grape", 
-      quantity: 50, 
-      id: 1
-    });
-  });
-
-  test('resetProduct should create reset product action', () => {
-    expect(a.resetProduct()).toEqual({
-      type: c.RESET_PRODUCT
+    expect(actions.toggleForm()).toEqual({
+      type: g.TOGGLE_FORM
     });
   });
 
   test('toggleEditing should create toggle editing action', () => {
-    expect(a.toggleEditing()).toEqual({
-      type: c.TOGGLE_EDITING
+    expect(actions.toggleEditing()).toEqual({
+      type: g.TOGGLE_EDITING
     });
   });
 
-})
+  test('addKeg should create ADD_KEG action', () => { 
+    expect(actions.addKeg({
+      name: "Savannah Dragon", 
+      brand: "MousHaus", 
+      price: 5, 
+      alcoholContent: 3,
+      flavor: "Raspberry-lime", 
+      kegs: 10, 
+      id: 3
+    })).toEqual({
+      type: g.ADD_KEG,
+      name: "Savannah Dragon", 
+      brand: "MousHaus", 
+      price: 5, 
+      alcoholContent: 3,
+      flavor: "Raspberry-lime", 
+      kegs: 10, 
+      id: 3
+    });
+  });
+});
