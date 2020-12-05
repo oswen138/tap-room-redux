@@ -1,24 +1,24 @@
 import * as actions from './../../actions';
-import * as g from '../../actions/ActionTypes';
+import * as c from '../../actions/ActionTypes';
 
 
 describe('keg actions', () => {
   test('deleteKeg should create DELETE_KEG action', () => {
     expect(actions.deleteKeg(1)).toEqual({
-      type: g.DELETE_KEG,
+      type: c.DELETE_KEG,
       id: 1
     });
   });
 
   test('toggleForm should create toggle form action', () => {
     expect(actions.toggleForm()).toEqual({
-      type: g.TOGGLE_FORM
+      type: c.TOGGLE_FORM
     });
   });
 
   test('toggleEditing should create toggle editing action', () => {
     expect(actions.toggleEditing()).toEqual({
-      type: g.TOGGLE_EDITING
+      type: c.TOGGLE_EDITING
     });
   });
 

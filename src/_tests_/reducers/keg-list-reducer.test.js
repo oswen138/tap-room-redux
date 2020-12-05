@@ -1,5 +1,5 @@
 import kegListReducer from  '../../reducers/keg-list-reducer';
-import * as g from '../../actions/ActionTypes';
+import * as c from '../../actions/ActionTypes';
 
 describe ('kegListReducer', () => {
   test('it should return the default state given a null action type', () => {
@@ -23,7 +23,7 @@ describe ('kegListReducer', () => {
     };
     const { name, brand, price, alcoholContent, flavor, kegs, id} = kegData;
     const action = {
-      type: g.ADD_KEG,
+      type: c.ADD_KEG,
       name: name,
       brand: brand,
       price: price,
@@ -65,7 +65,7 @@ describe ('kegListReducer', () => {
       id: 4 },
     };
     const action = {
-      type: g.DELETE_PRODUCT,
+      type: c.DELETE_KEG,
       name: "Savannah Dragon", 
       brand: "MousHaus", 
       price: 5, 
