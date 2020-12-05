@@ -16,10 +16,10 @@ describe ('kegListReducer', () => {
       name: "Savannah Dragon", 
       brand: "MousHaus", 
       price: 5, 
-      alcoholContent: 3
+      alcoholContent: 3,
       flavor: "Raspberry-lime", 
       kegs: 10, 
-      id: 1
+      id: 3
     };
     const { name, brand, price, alcoholContent, flavor, kegs, id} = kegData;
     const action = {
@@ -27,51 +27,62 @@ describe ('kegListReducer', () => {
       name: name,
       brand: brand,
       price: price,
+      alcoholContent: alcoholContent,
       flavor: flavor,
-      quantity: quantity,
+      kegs: kegs,
       id: id
     };
-    expect(productListReducer({}, action)).toEqual({
+    expect(kegListReducer({}, action)).toEqual({
       [id]: {
-        name: "Gratuitous Grape", 
-        brand: "The Kombucha Bar", 
-        price: 3.00, 
-        flavor: "Grape", 
-        quantity: 50, 
-        id: 1
+        name: "Savannah Dragon", 
+        brand: "MousHaus", 
+        price: 5, 
+        alcoholContent: 3,
+        flavor: "Raspberry-lime", 
+        kegs: 10, 
+        id: 3
       }
     });
   });
 
-  test('should successfully delete a product', () => {
+  test('should successfully delete a keg', () => {
     const currentState = {
-      1: {name: "Gingerberry Goddess", 
-      brand: "Vanessa's Kombuchary", 
-      price: 3.25, flavor: "Gingerberry", 
-      quantity: 1, 
-      id: 1},
-      2: {name: "Mystic Mango", 
-      brand: "Booch Boulevard, LLC", 
-      price: 3.99, 
-      flavor: "Mango", 
-      quantity: 10, 
-      id: 2},
+      1: {
+      name: "Savannah Dragon", 
+      brand: "MousHaus", 
+      price: 5, 
+      alcoholContent: 3,
+      flavor: "Raspberry-lime", 
+      kegs: 10, 
+      id: 3},
+      2: {
+      name: "Loopy Strawberry", 
+      brand: "Biko Juices", 
+      price: 5, 
+      alcoholContent: 3, 
+      flavor: "Strawberry-Mint", 
+      kegs: 12, 
+      id: 4 },
     };
     const action = {
-      type: c.DELETE_PRODUCT,
-      name: "Gingerberry Goddess", 
-      brand: "Vanessa's Kombuchary", 
-      price: 3.25, flavor: "Gingerberry", 
-      quantity: 1, 
-      id: 1
+      type: g.DELETE_PRODUCT,
+      name: "Savannah Dragon", 
+      brand: "MousHaus", 
+      price: 5, 
+      alcoholContent: 3,
+      flavor: "Raspberry-lime", 
+      kegs: 10, 
+      id: 3,
     };
-    expect(productListReducer(currentState, action)).toEqual({
-      2: {name: "Mystic Mango", 
-      brand: "Booch Boulevard, LLC", 
-      price: 3.99, 
-      flavor: "Mango", 
-      quantity: 10, 
-      id: 2},
+    expect(kegListReducer(currentState, action)).toEqual({
+      2: {
+      name: "Loopy Strawberry", 
+      brand: "Biko Juices", 
+      price: 5, 
+      alcoholContent: 3, 
+      flavor: "Strawberry-Mint", 
+      kegs: 12, 
+      id: 4 },
     });
   });
 })
