@@ -3,8 +3,9 @@ import NewKegForm from './NewKegForm';
 import KegList from './KegList';
 import KegDetail from './KegDetail';
 import EditKegForm from './EditKegForm';
-import { v4 } from 'uuid'; 
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import * as a from '../_tests_/actions/index.test';
 
 class KegControl extends React.Component {
 
@@ -20,22 +21,22 @@ class KegControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedKeg != null) {
       this.setState({
-        formVisibleOnPage: false,
         selectedKeg: null,
         editing: false
       });
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+      const { dispatch } = this.props;
+      const action = a.toggleForm();
+      dispatch(action);
     }
-  }ghjyjf
+  }
+
 
   handleAddingNewKegToList = (newKeg) => {
     const { dispatch } = this.props;
-    const action  = a.addKeg(newKeg);
+    const action = a.addTicket(newKeg);
     dispatch(action);
-    const action2 = a.resetKeg();
+    const action2 = a.toggleForm();
     dispatch(action2);
   }
 
@@ -48,10 +49,9 @@ class KegControl extends React.Component {
 
   handleDeletingKeg = (id) => {
     const { dispatch } = this.props;
-    const action  = a.deleteKeg(id);
+    const action = a.deleteKeg(id);
     dispatch(action);
-    const action2 = a.resetKeg();
-    dispatch(action2);
+    this.setState({selectedKeg: null});
   }
 
   handleEditClick = () => {
@@ -60,20 +60,22 @@ class KegControl extends React.Component {
     dispatch(action);
   }
 
-  handleEditingKegInList = (kegToEdit) => {
+  handleEditingTicketInList = (kegToEdit) => {
     const { dispatch } = this.props;
-    const action  = a.addKeg(kegToEdit);
+    const action = a.addTicket(kegToEdit);
     dispatch(action);
-    const action2 = a.resetKeg();
-    dispatch(action2);
-    const action3 = a.toggleEditing();
-    dispatch(action3);
+    this.setState({
+      editing: false,
+      selectedKeg: null
+    });
   }
 
   handleSoldKeg = (kegSold) => {
-    const editedMasterKegList = this.props.masterKegList.filter(keg => keg.id !== this.props.selectedKeg.id).concat(kegSold);
+    const {dispatch} = this.props;
+    const action = a.onSoldKeg(kegSold)
+    dispatch(action);
     this.setState({
-      masterKegList: editedMasterKegList,
+      editing: false,
       selectedKeg: null
     });
   }
