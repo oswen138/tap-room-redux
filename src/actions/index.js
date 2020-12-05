@@ -1,50 +1,43 @@
-import * as c from './ActionTypes';
+import * as g from './ActionTypes';
 
-// ADD_PRODUCT
-export const addProduct = (product) => {
-  const { name, brand, price, flavor, quantity, id} = product;
+export const addKeg = (keg) => {
+  const { name, brand, price, alcoholContent, flavor, kegs, id} = keg;
   return {
-    type: c.ADD_PRODUCT,
+    type: g.ADD_KEG,
     name: name, 
     brand: brand, 
     price: price, 
+    alcoholContent: alcoholContent,
     flavor: flavor, 
-    quantity: quantity, 
+    kegs: kegs, 
     id: id
   };
 }
 
-// DELETE_PRODUCT
-export const deleteProduct = (id) => ({
-  type: c.DELETE_PRODUCT,
+export const selectKeg = (keg) => {
+  const { name, brand, price, alcoholContent, flavor, kegs, id} = keg;
+  return {
+    type: g.SELECT_KEG,
+    name: name, 
+    brand: brand, 
+    price: price, 
+    alcoholContent: alcoholContent,
+    flavor: flavor, 
+    kegs: kegs, 
+    id: id
+  };
+}
+
+export const deleteKeg = (id) => ({
+  type: g.DELETE_KEG,
   id: id
 })
 
-// TOGGLE_FORM
-export const toggleForm = () => ({
-  type: c.TOGGLE_FORM
-})
-
-// SELECT_PRODUCT
-export const selectProduct = (product) => {
-  const { name, brand, price, flavor, quantity, id} = product;
-  return {
-    type: c.SELECT_PRODUCT,
-    name: name, 
-    brand: brand, 
-    price: price, 
-    flavor: flavor, 
-    quantity: quantity, 
-    id: id
-  };
-}
-
-// RESET_PRODUCT
-export const resetProduct = () => ({
-  type: c.RESET_PRODUCT
-})
-
-// TOGGLE_EDITING
 export const toggleEditing = () => ({
-  type: c.TOGGLE_EDITING
+  type: g.TOGGLE_EDITING
 })
+
+export const toggleForm = () => ({
+  type: g.TOGGLE_FORM
+})
+

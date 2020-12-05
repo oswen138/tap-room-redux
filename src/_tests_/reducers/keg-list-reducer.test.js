@@ -1,28 +1,29 @@
-import productListReducer from  '../../reducers/product-list-reducer';
-import * as c from '../../actions/ActionTypes';
+import kegListReducer from  '../../reducers/keg-list-reducer';
+import * as g from '../../actions/ActionTypes';
 
-describe ('productListReducer', () => {
+describe ('kegListReducer', () => {
   test('it should return the default state given a null action type', () => {
-    expect(productListReducer(undefined, {type:null})).toEqual({
-      1: {name: "Gingerberry Goddess", brand: "Vanessa's Kombuchary", price: "3.25", flavor: "Gingerberry", quantity: "1", id: "1"},
-      2: {name: "Mystic Mango", brand: "Booch Boulevard, LLC", price: "3.99", flavor: "Mango", quantity: "10", id: "2"},
-      3: {name: "Symphonic Straberry", brand: "Scarlett's Secret SCOBY", price: "4.99", flavor: "Strawberry", quantity: "50", id: "3"},
-      4: {name: "Regal Raspberry", brand: "Paradise Kombucha Co.", price: "2.99", flavor: "Raspberry", quantity: "124", id: "4"}
+    expect(kegListReducer(undefined, {type:null})).toEqual({
+      1: {name: "Perky Pear", brand: "MousHaus", price: '5', alcoholContent: '3', flavor: "Pear-Ginger", kegs: 5, id: 1},
+      2: {name: "Teary Berry", brand: "Biko Juices", price: '5', alcoholContent: '3', flavor: "Blueberry-Boysenberry", kegs: 8, id: 2},
+      3: {name: "Savannah Dragon", brand: "MousHaus", price: '5', alcoholContent: '3', flavor: "Raspberry-lime", kegs: 10, id: 3},
+      4: {name: "Loopy Strawberry", brand: "Biko Juices", price: '5', alcoholContent: '3', flavor: "Strawberry-Mint", kegs: 12, id: 4}
     });
   });
 
-  test('should successfully add new product to masterProductList', () => {
-    const productData = {
-      name: "Gratuitous Grape", 
-      brand: "The Kombucha Bar", 
-      price: 3.00, 
-      flavor: "Grape", 
-      quantity: 50, 
+  test('should successfully add new keg to masterKegList', () => {
+    const kegData = {
+      name: "Savannah Dragon", 
+      brand: "MousHaus", 
+      price: 5, 
+      alcoholContent: 3
+      flavor: "Raspberry-lime", 
+      kegs: 10, 
       id: 1
     };
-    const { name, brand, price, flavor, quantity, id} = productData;
+    const { name, brand, price, alcoholContent, flavor, kegs, id} = kegData;
     const action = {
-      type: c.ADD_PRODUCT,
+      type: g.ADD_KEG,
       name: name,
       brand: brand,
       price: price,

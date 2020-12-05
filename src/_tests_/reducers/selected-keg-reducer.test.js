@@ -1,21 +1,24 @@
-import selectedProductReducer from '../../reducers/selected-product-reducer';
-import * as c from '../../actions/ActionTypes';
+import selectedKegReducer from '../../reducers/selected-keg-reducer';
+import * as g from '../../actions/ActionTypes';
 
-describe('selectedProductReducer', () => {
-  const masterProductList = {
+describe('selectedKegReducer', () => {
+  const masterKegList = {
     1: {
-      name: "Gingerberry Goddess", 
-      brand: "Vanessa's Kombuchary", 
-      price: 3.25, flavor: "Gingerberry", 
-      quantity: 1, 
+      name: "Perky Pear", 
+      brand: "MousHaus", 
+      price: 5, 
+      alcoholContent: 3,
+      flavor: "Pear-ginger", 
+      kegs: 10, 
       id: 1
     },
     2: {
-      name: "Mystic Mango", 
-      brand: "Booch Boulevard, LLC", 
-      price: 3.99, 
-      flavor: "Mango", 
-      quantity: 10, 
+      name: "Teary Berry", 
+      brand: "Biko Juices", 
+      price: 5, 
+      alcoholContent: 3,
+      flavor: "Blueberry-Boysenberry", 
+      kegs: 10, 
       id: 2
     }
   };
@@ -23,33 +26,30 @@ describe('selectedProductReducer', () => {
   let action;
 
   test('should return default state given null action type', () => {
-    expect(selectedProductReducer(undefined, {type: null})).toEqual(null);
+    expect(selectedKegReducer(undefined, {type: null})).toEqual(null);
   });
 
-  test('should successfully store selectedProduct', () => {
+  test('should successfully store selectedKeg', () => {
     action = {
-      type: c.SELECT_PRODUCT,
-      name: "Gingerberry Goddess", 
-      brand: "Vanessa's Kombuchary", 
-      price: 3.25, flavor: "Gingerberry", 
-      quantity: 1, 
+      type: g.SELECT_KEG,
+      name: "Perky Pear", 
+      brand: "MousHaus", 
+      price: 5, 
+      alcoholContent: 3,
+      flavor: "Pear-ginger", 
+      kegs: 10, 
       id: 1
     };
 
-    expect(selectedProductReducer({masterProductList: masterProductList}, action)).toEqual({
-      name: "Gingerberry Goddess", 
-      brand: "Vanessa's Kombuchary", 
-      price: 3.25, flavor: "Gingerberry", 
-      quantity: 1, 
+    expect(selectedKegReducer({masterKegList: masterKegList}, action)).toEqual({
+      name: "Perky Pear", 
+      brand: "MousHaus", 
+      price: 5, 
+      alcoholContent: 3,
+      flavor: "Pear-ginger", 
+      kegs: 10, 
       id: 1
     });
-  });
-
-  test('should successfully reset selectedProduct', () => {
-    action = {
-      type: c.RESET_PRODUCT
-    }
-    expect(selectedProductReducer(masterProductList[1], action)).toEqual(null);
   });
 
 })
